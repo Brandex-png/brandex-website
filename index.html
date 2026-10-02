@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRANDEX — Logo Design Studio</title>
+  <meta name="description" content="Brandex creates premium custom logos for ambitious businesses. One flat price: $35." />
+  <style>
+    :root {
+      --bg: #05080d;
+      --panel: #0a1018;
+      --panel-2: #0d1520;
+      --text: #f5f7fa;
+      --muted: #8d99a8;
+      --silver: #cfd6df;
+      --line: rgba(207, 214, 223, 0.14);
+      --glow: rgba(180, 195, 215, 0.11);
+      --white: #f4f6f8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(130, 155, 185, 0.09), transparent 25%),
+        radial-gradient(circle at 10% 45%, rgba(130, 155, 185, 0.045), transparent 25%);
+      z-index: -1;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; }
+
+    .container { width: min(1180px, 92%); margin: 0 auto; }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(5, 8, 13, 0.68);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 950;
+      letter-spacing: -1.5px;
+    }
+
+    .brand i {
+      font-style: normal;
+      color: #8996a5;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      color: #aab4c0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    nav a { transition: 0.2s ease; }
+    nav a:hover { color: #fff; }
+
+    .nav-btn {
+      padding: 11px 17px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      background: var(--white);
+      color: #07101a;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 170px 0 100px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .kicker {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #9da9b7;
+      font-weight: 850;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 7.5vw, 104px);
+      line-height: 0.91;
+      letter-spacing: -6px;
+      max-width: 800px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: #8995a4;
+    }
+
+    .hero-copy {
+      max-width: 600px;
+      color: #929eac;
+      font-size: 17px;
+      margin: 30px 0;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 20px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 850;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: var(--white);
+      color: #07101a;
+    }
+
+    .primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 45px rgba(255, 255, 255, 0.1);
+    }
+
+    .secondary {
+      border-color: var(--line);
+      color: #d5dbe2;
+      background: transparent;
+    }
+
+    .secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 460px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: linear-gradient(145deg, #101a27, #070b11);
+      overflow: hidden;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(180, 200, 225, 0.08);
+      filter: blur(50px);
+      top: 50px;
+      left: 40px;
+    }
+
+    .logo-mark {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 115px;
+      font-weight: 950;
+      letter-spacing: -12px;
+      color: #e6ebf0;
+      text-shadow: 0 0 50px rgba(220, 230, 240, 0.12);
+    }
+
+    .card-label {
+      position: absolute;
+      left: 25px;
+      right: 25px;
+      bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      color: #7f8b99;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    section { padding: 110px 0; }
+
+    .eyebrow {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #8794a3;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 48px;
+      line-height: 1;
+      letter-spacing: -2.5px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 550px;
+      margin-top: 17px;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+      margin-top: 35px;
+    }
+
+    .price-side {
+      padding: 45px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .price {
+      font-size: 76px;
+      font-weight: 950;
+      letter-spacing: -6px;
+      line-height: 1;
+    }
+
+    .price span {
+      font-size: 14px;
+      letter-spacing: 0;
+      color: #788492;
+    }
+
+    .price-side p {
+      color: #8c98a6;
+      font-size: 14px;
+      margin-top: 14px;
+    }
+
+    .price-main {
+      padding: 45px;
+    }
+
+    .price-main h3 {
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    .checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .check {
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+      color: #c3cbd4;
+      font-size: 14px;
+    }
+
+    .check::before {
+      content: "✓";
+      margin-right: 9px;
+      color: #fff;
+    }
+
+    .portfolio-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 35px;
+      gap: 20px;
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .project {
+      height: 270px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      padding: 25px;
+      display: flex;
+      align-items: end;
+      background: linear-gradient(140deg, #172332, #070b11);
+      transition: 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .project:nth-child(1),
+    .project:nth-child(4) { grid-column: span 7; }
+
+    .project:nth-child(2),
+    .project:nth-child(3),
+    .project:nth-child(5),
+    .project:nth-child(6) { grid-column: span 5; }
+
+    .project:nth-child(2) { background: linear-gradient(140deg, #22252b, #090c11); }
+    .project:nth-child(3) { background: linear-gradient(140deg, #102d32, #070d10); }
+    .project:nth-child(4) { background: linear-gradient(140deg, #25242d, #0a0a0e); }
+    .project:nth-child(5) { background: linear-gradient(140deg, #172a43, #070d15); }
+    .project:nth-child(6) { background: linear-gradient(140deg, #242b30, #090c0e); }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -55% 25%;
+      height: 180px;
+      background: rgba(255,255,255,.06);
+      filter: blur(40px);
+      transform: rotate(-10deg);
+    }
+
+    .project-content { position: relative; z-index: 2; }
+
+    .project small {
+      display: block;
+      color: #9da8b5;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .project strong {
+      font-size: 28px;
+      letter-spacing: -1.3px;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 35px;
+    }
+
+    .step {
+      background: var(--panel);
+      padding: 32px;
+      min-height: 220px;
+    }
+
+    .step-number {
+      font-size: 11px;
+      color: #687584;
+      letter-spacing: 2px;
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 55px 0 8px;
+      font-size: 18px;
+    }
+
+    .step p {
+      font-size: 13px;
+      color: #7f8b99;
+    }
+
+    .order-section {
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.025));
+    }
+
+    .order-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 25px;
+    }
+
+    .order-copy {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 40px;
+      background: linear-gradient(145deg, #0d1722, #080c12);
+    }
+
+    .order-copy h2 {
+      font-size: 43px;
+      letter-spacing: -2px;
+      line-height: 1.02;
+    }
+
+    .order-copy p {
+      color: #8793a1;
+      margin-top: 18px;
+    }
+
+    .order-benefits {
+      margin-top: 30px;
+      color: #b5bec9;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .form-card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 30px;
+      background: #080e16;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field { margin-bottom: 14px; }
+    .full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-weight: 850;
+      color: #9da8b5;
+      margin-bottom: 7px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #060b12;
+      color: var(--text);
+      padding: 13px;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #7d8997;
+      box-shadow: 0 0 0 3px rgba(125, 137, 151, 0.08);
+    }
+
+    textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    .submit {
+      width: 100%;
+      border: 0;
+      cursor: pointer;
+      margin-top: 3px;
+    }
+
+    .note {
+      text-align: center;
+      color: #667382;
+      font-size: 11px;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 35px 0;
+      color: #697584;
+      font-size: 12px;
+    }
+
+    footer .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid, .order-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 130px; }
+      .hero-card { min-height: 340px; }
+      nav { display: none; }
+      .portfolio-head { align-items: start; flex-direction: column; gap: 15px; }
+      .project:nth-child(n) { grid-column: span 6; }
+      .process { grid-template-columns: 1fr 1fr; }
+      .pricing { grid-template-columns: 1fr; }
+      .price-side { border-right: 0; border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 560px) {
+      h1 { letter-spacing: -3.5px; }
+      .section-title { font-size: 38px; }
+      .hero-card { min-height: 280px; }
+      .logo-mark { font-size: 78px; }
+      .checks, .grid, .process { grid-template-columns: 1fr; }
+      .project:nth-child(n) { grid-column: span 12; height: 220px; }
+      section { padding: 75px 0; }
+      .price-side, .price-main, .order-copy, .form-card { padding: 25px; }
+      footer .foot { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">BRANDEX<i>.</i></a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#process">Process</a>
+        <a href="#order">Order</a>
+      </nav>
+      <a class="nav-btn" href="#order">Start a Project</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker">Independent Design Studio · Est. 2026</div>
+          <h1>Your brand.<br><em>Better designed.</em></h1>
+          <p class="hero-copy">
+            Brandex creates sharp, custom logos for businesses that want to look established
+            from day one. No complicated packages. Just great design for one flat price.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#order">Get Started — $35</a>
+            <a class="btn secondary" href="#work">Explore Our Work</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="logo-mark">BX</div>
+          <div class="card-label">
+            <span>BRANDEX STUDIO</span>
+            <span>CUSTOM IDENTITY</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="eyebrow">The Brandex standard</div>
+        <h2 class="section-title">Premium design.<br>Simple pricing.</h2>
+        <p class="section-intro">
+          We keep the price straightforward so you can focus on building your business,
+          not choosing between a dozen packages.
+        </p>
+
+        <div class="pricing">
+          <div class="price-side">
+            <div>
+              <div class="price">$35<span> / logo</span></div>
+              <p>One custom logo, one flat price.</p>
+            </div>
+            <a class="btn primary" href="#order">Order Your Logo</a>
+          </div>
+
+          <div class="price-main">
+            <h3>Everything you need to make your business look legit.</h3>
+            <div class="checks">
+              <div class="check">Custom logo concept</div>
+              <div class="check">Business-focused design</div>
+              <div class="check">Your colors & direction</div>
+              <div class="check">Clean professional style</div>
+              <div class="check">Review before final delivery</div>
+              <div class="check">Built for digital branding</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="portfolio-head">
+          <div>
+            <div class="eyebrow">Selected work</div>
+            <h2 class="section-title">Made to stand out.</h2>
+          </div>
+          <p class="section-intro">
+            A few sample directions. Replace these with your actual client logos as your Brandex
+            portfolio grows.
+          </p>
+        </div>
+
+        <div class="portfolio">
+          <div class="project">
+            <div class="project-content">
+              <small>Automotive</small>
+              <strong>APEX AUTO</strong>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-content">
+              <small>Detailing</small>
+              <strong>PRESTIGE</strong>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-content">
+              <small>Home Services</small>
+              <strong>INTEGRITY</strong>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-content">
+              <small>Junk Removal</small>
+              <strong>EXPRESS</strong>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-content">
+              <small>Mechanic</small>
+              <strong>MOBILE MECHANIC</strong>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-content">
+              <small>New Brand</small>
+              <strong>YOUR LOGO HERE</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="eyebrow">Our process</div>
+        <h2 class="section-title">From idea to identity.</h2>
+
+        <div class="process">
+          <div class="step">
+            <div class="step-number">01 / BRIEF</div>
+            <h3>Tell us what you need.</h3>
+            <p>Business name, colors, style and the direction you're thinking.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">02 / DESIGN</div>
+            <h3>We build the concept.</h3>
+            <p>Your information becomes a custom logo direction made for your business.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">03 / REVIEW</div>
+            <h3>You give feedback.</h3>
+            <p>Review the design and tell us what you want adjusted.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">04 / DELIVERY</div>
+            <h3>Make it yours.</h3>
+            <p>Once approved, your finished logo is ready for your brand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="order-section" id="order">
+      <div class="container">
+        <div class="order-grid">
+          <div class="order-copy">
+            <div class="eyebrow">Start a project</div>
+            <h2>Let's build your next logo.</h2>
+            <p>
+              Fill out the form with as much detail as you can. The more we know about your business,
+              the better we can understand the direction you're after.
+            </p>
+
+            <div class="order-benefits">
+              ✓ $35 flat price<br>
+              ✓ Custom design<br>
+              ✓ Simple review process<br>
+              ✓ Professional brand direction
+            </div>
+          </div>
+
+          <div class="form-card">
+            <form id="orderForm">
+              <div class="grid">
+                <div class="field">
+                  <label>Your name</label>
+                  <input required name="name" placeholder="John Smith" />
+                </div>
+
+                <div class="field">
+                  <label>Email</label>
+                  <input required type="email" name="email" placeholder="you@example.com" />
+                </div>
+
+                <div class="field">
+                  <label>Business name</label>
+                  <input required name="business" placeholder="Your Business" />
+                </div>
+
+                <div class="field">
+                  <label>Business type</label>
+                  <input name="type" placeholder="What does your business do?" />
+                </div>
+
+                <div class="field">
+                  <label>Colors</label>
+                  <input name="colors" placeholder="Navy, white, silver..." />
+                </div>
+
+                <div class="field">
+                  <label>Style</label>
+                  <select name="style">
+                    <option>Modern</option>
+                    <option>Luxury</option>
+                    <option>Bold</option>
+                    <option>Minimal</option>
+                    <option>Sporty</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label>What do you want?</label>
+                  <textarea name="ideas" placeholder="Describe the logo you have in mind..."></textarea>
+                </div>
+
+                <div class="field full">
+                  <label>Inspiration link (optional)</label>
+                  <input name="reference" placeholder="Paste an example link" />
+                </div>
+
+                <div class="field full">
+                  <label>Additional details</label>
+                  <textarea name="details" placeholder="Anything else we should know?"></textarea>
+                </div>
+              </div>
+
+              <button class="btn primary submit" type="submit">Submit Logo Order — $35</button>
+
+              <div class="note">
+                This version opens an email draft with the order details. Connect a form service
+                for automatic submissions.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <span>© 2026 BRANDEX. All rights reserved.</span>
+      <span>Custom logos · One flat price.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      let body = "BRANDEX LOGO ORDER\n\n";
+
+      for (const [key, value] of formData.entries()) {
+        body += key.toUpperCase() + ": " + value + "\n";
+      }
+
+      const business = formData.get("business") || "My Business";
+      const subject = "Brandex Logo Order — " + business;
+
+      window.location.href =
+        "mailto:?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
+    });
+  </script>
+</body>
+</html>
